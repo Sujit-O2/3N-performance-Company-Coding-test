@@ -1,0 +1,4 @@
+## 2024-11-11 - Unvalidated Input in Console Applications Causing DoS and Information Leak
+**Vulnerability:** Simple console applications allocating arrays or taking inputs via `Scanner.nextInt()` without validation or exception handling.
+**Learning:** This leads to Denial of Service via `NegativeArraySizeException` and memory exhaustion (`OutOfMemoryError`), or Information Leakage by printing stack traces on `InputMismatchException`.
+**Prevention:** Always validate size inputs before dynamically allocating arrays, and wrap user input logic in global `try-catch` blocks that catch `Exception` and print generic error messages to avoid leaking implementation details.
